@@ -27,13 +27,16 @@
 
                 <div class="row">
                     <label>
-                        Red <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_red" onchange="pixlr.colors.slider.update()">
+                        Red <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_red"
+                                   oninput="pixlr.colors.slider.update()">
                     </label>
                     <label>
-                        Green <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_green" onchange="pixlr.colors.slider.update()">
+                        Green <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_green"
+                                     oninput="pixlr.colors.slider.update()">
                     </label>
                     <label>
-                        Blue <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_blue" onchange="pixlr.colors.slider.update()">
+                        Blue <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_blue"
+                                    oninput="pixlr.colors.slider.update()">
                     </label>
 
                     <label>
@@ -50,12 +53,18 @@
                         <input type="color" id="canvas_bg" value="#f1f1f1" onchange="pixlr.grid.background.change()">
                     </label>
 
-                    <button id="clear_background" class="btn btn-primary" onclick="pixlr.grid.transparent()">Clear Background</button>
+                    <button id="clear_background" class="btn btn-primary" onclick="pixlr.grid.transparent()">Clear
+                        Background
+                    </button>
 
 
-                    <button id="save_pixels" class="btn btn-primary pixel-canvas--save-pixels" onclick="pixlr.pixels.save()">Save Pixel</button>
+                    <button id="save_pixels" class="btn btn-primary pixel-canvas--save-pixels"
+                            onclick="pixlr.pixels.save()">Save Pixel
+                    </button>
 
-                    <button type="submit" class="btn  btn-success pixel-canvas--create-grid" onclick="pixlr.makeGrid()">Create New Grid</button>
+                    <button type="submit" class="btn  btn-success pixel-canvas--create-grid" onclick="pixlr.makeGrid()">
+                        Create New Grid
+                    </button>
 
 
                 </div>
@@ -65,70 +74,45 @@
                 <table id="pixel_canvas"></table>
             </div>
 
-        </div>
-    </div>
-</div>
+            <div class="pixlr-sidebar">
 
-
-<div class="container-fluid pixel-canvas--colors">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <!--<label for="color_picker">Brush Color: <br>-->
-                    <!--<input type="color" id="color_picker">-->
-                <!--</label>-->
-            </div>
-            <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h4>Color History</h4>
-                        <table id="color_history">
-                            <tr></tr>
-                        </table>
-                    </div>
-                    <div class="col-md-12">
-                        <h4>Message Console:</h4>
-                        <p id="message_console"></p>
-                    </div>
+                    <p class="section-title">Message Console</p>
+                    <p id="pixlr_console"></p>
                 </div>
+
+                <div class="row">
+                    <p class="section-title">Color History</p>
+                    <table id="color_history">
+                        <tr></tr>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <p class="section-title">Pixel Preview</p>
+                    <div id="saved_pixel"></div>
+                </div>
+
+
             </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid pixel-canvas--grid">
+
+<footer class="fluid">
     <div class="container">
         <div class="row">
-
-            <div class="col-md-6">
-                <p class="pixel-canvas--label">Pixel Canvas</p>
-                <!--<table id="pixel_canvas"></table>-->
-            </div>
-
-            <div class="col-md-6">
-                <p class="pixel-canvas--preview-label">Pixel Preview</p>
-                <div id="saved_pixel"></div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<footer class="container-fluid">
-    <div class="conatiner">
-        <div class="row">
-            <div class="col-md-12">
-                <p>
-                    Created by <a href="http://lloanalas.com">Lloan Alas</a>. Soure code on GitHub <a href="https://github.com/lloan/gwg-fend/tree/master/pixel-art-maker">here</a>.
-                </p>
-            </div>
+            <p>
+                Created by <a href="http://lloanalas.com">Lloan Alas</a>. Pixlr source on <a
+                    href="https://github.com/lloan/gwg-fend/tree/master/pixel-art-maker">GitHub</a>.
+            </p>
         </div>
     </div>
 </footer>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script src="js/pixlr.js"></script>
-
 
 
 </body>

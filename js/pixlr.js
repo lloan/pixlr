@@ -59,7 +59,7 @@ let pixlr = {
             colors: ['Selecting this color again?', 'Oldie, but a goodie!', 'This color choice is still awesome!', 'Definitely one of your favorite colors.'],
             picker: ['Awesome new color!', 'Bit on the wild side, no?', 'Adventurous color choice!', 'It\'s a bit... meh?']
         },
-        element: document.getElementById('message_console'),
+        element: document.getElementById('pixlr_console'),
         log: (message, type) => {
             let element = pixlr.message.element;
             type === 1 ? element.className = 'success-message' :

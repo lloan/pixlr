@@ -11,6 +11,9 @@
 @warning: #DBAF4E;
 @error: #C15A41;
 
+// FONTS
+@os: 'open sans';
+
 // COMPONENT STYLING
 button {
   background-color: transparent;
@@ -21,7 +24,7 @@ button {
   width: 100%;
   text-transform: uppercase;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: @os, sans-serif;
   margin: 3px auto;
 
   &:hover {
@@ -29,7 +32,6 @@ button {
     color: @contrast;
   }
 }
-
 .slider {
   -webkit-appearance: none;
   width: 70%;
@@ -59,11 +61,13 @@ button {
     cursor: pointer;
   }
 }
-
+a {
+  text-decoration: none;
+  transition: .2s ease;
+}
 table {
   border-collapse: collapse;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -74,6 +78,8 @@ body {
   }
 }
 
+
+// LAYOUT
 .container {
   width: 100%;
   max-width: 1140px;
@@ -95,23 +101,41 @@ body {
     max-width: 300px;
   }
 }
-
 .fluid {
   width: 100%;
   margin: 0 auto;
   padding: 0;
 }
-
 .row {
   position: relative;
   margin: 0 auto;
   padding: 0;
 }
 
-.pixlr-controls, .pixlr-grid {
+
+.section-title {
+  font-family: @os;
+  font-size: 16px;
+  font-weight: 100;
+  margin: 0;
+}
+
+
+.pixlr-controls,
+.pixlr-grid,
+.pixlr-sidebar{
   display: inline-block;
   vertical-align: top;
   margin: 25px 0 0 0;
+  width: 30%;
+  max-width: 375px;
+
+  #color_history {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    margin: 15px 0;
+  }
 }
 
 .pixlr-header {
@@ -130,7 +154,8 @@ body {
 .pixlr-controls {
   background-color: transparent;
   border: 1px solid @secondary;
-  width: 200px;
+  min-width: 200px;
+  width: 20%;
   padding-bottom: 5px;
 
   .color-picker-container,
@@ -145,7 +170,7 @@ body {
     margin: 5px 0 0 0;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'open sans';
+    font-family: @os;
     font-weight: 100;
     font-size: 16px;
   }
@@ -158,7 +183,7 @@ body {
     display: inline-block;
     line-height: 34px;
     text-transform: uppercase;
-    font-family: 'open sans';
+    font-family: @os;
     font-size: 14px;
   }
 
@@ -168,6 +193,7 @@ body {
     min-height: 50px;
     padding: 0;
     background-color: transparent;
+    transition: .2s ease;
   }
   input#input_height, input#input_width {
     width: 80px;
@@ -190,7 +216,12 @@ body {
 }
 
 .pixlr-grid {
+  min-width: 460px;
+  max-width: 460px;
+
   #pixel_canvas {
+    margin: 0 auto;
+
     tr {
       height: 20px;
     }
@@ -203,3 +234,74 @@ body {
   }
 }
 
+#pixlr_console {
+  min-height: 40px;
+  font-family: @os;
+  background-color: @primary;
+  color: @contrast;
+  font-size: 14px;
+  line-height: 32px;
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  width: 95%;
+}
+
+#saved_pixel {
+  width: 100%;
+  height: 270px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+
+  canvas {
+    width: 65px !important;
+    padding: 0;
+    height: 65px !important;
+    margin: 5px 15px 5px 0;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: 1px solid slategrey;
+  }
+}
+
+footer {
+    p {
+    text-align: center;
+    margin: 30px 0;
+    width: 100%;
+    background: @primary;
+    font-family: @os;
+    color: @contrast;
+    padding: 10px 15px;
+    font-size: 14px;
+
+      a {
+        color: @tertiary;
+
+        &:hover {
+          color: @warning;
+        }
+      }
+  }
+}
+
+// messaging console
+.normal-message {
+  border-left: 10px solid @default;
+}
+.warning-message {
+  border-left: 10px solid @warning;
+}
+.success-message {
+  border-left: 10px solid @success;
+}
+.error-message {
+  border-left: 10px solid @error;
+}
