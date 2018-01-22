@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Art Maker!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container-fluid header--container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="header--title">Lab: Pixel Art Maker</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pixel-canvas--controls">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pixel-canvas--title">Pixel Canvas Settings</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="size_picker">
+                    <label>Grid Height: <br>
+                    <input type="number" id="input_height" name="height" min="1" max="20" value="1">
+                    </label>
+
+                    <label>Grid Width:<br>
+                    <input type="number" id="input_width" name="width" min="1" max="20" value="1">
+                    </label>
+
+                    <label>Background Color: <br>
+                        <input type="color" id="canvas_bg" value="#f1f1f1" onchange="pixlr.grid.background.change()">
+                    </label>
+
+                    <button id="clear_background" class="btn btn-primary" onclick="pixlr.grid.transparent()">Clear Background</button>
+
+
+                    <button id="save_pixels" class="btn btn-primary pixel-canvas--save-pixels" onclick="pixlr.pixels.save()">Save Pixel</button>
+
+                    <button type="submit" class="btn  btn-success pixel-canvas--create-grid" onclick="pixlr.makeGrid()">Create New Grid</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container-fluid pixel-canvas--colors">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="color_picker">Brush Color: <br>
+                    <input type="color" id="color_picker">
+                </label>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Color History</h4>
+                        <table id="color_history">
+                            <tr></tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>Message Console:</h4>
+                        <p id="message_console"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pixel-canvas--grid">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                <p class="pixel-canvas--label">Pixel Canvas</p>
+                <table id="pixel_canvas"></table>
+            </div>
+
+            <div class="col-md-6">
+                <p class="pixel-canvas--preview-label">Pixel Preview</p>
+                <div id="saved_pixel"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid">
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Created by <a href="http://lloanalas.com">Lloan Alas</a>. Soure code on GitHub <a href="https://github.com/lloan/gwg-fend/tree/master/pixel-art-maker">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="js/pixlr.js"></script>
+
+</body>
+</html>
