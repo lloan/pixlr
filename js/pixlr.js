@@ -124,6 +124,33 @@ let pixlr = {
             }
 
             pixlr.colors.sort();
+        },
+        slider:  {
+            red: document.getElementById('pixlr_red'),
+            blue: document.getElementById('pixlr_blue'),
+            green: document.getElementById('pixlr_green'),
+            update: () => {
+                console.log('rgb(' + pixlr.colors.slider.red.value + ', ' + pixlr.colors.slider.green.value + ', ' + pixlr.colors.slider.blue.value + ')');
+                pixlr.colors.picker.value = pixlr.colors.convert('rgb(' + pixlr.colors.slider.red.value + ', ' + pixlr.colors.slider.green.value + ', ' + pixlr.colors.slider.blue.value + ')', 'rgb');
+            }
+        },
+        rgb: (color) => {
+            color = color.match(/^rgb?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+            return (color && color.length === 4) ? "#" +
+                ("0" + parseInt(color[1],10).toString(16)).slice(-2) +
+                ("0" + parseInt(color[2],10).toString(16)).slice(-2) +
+                ("0" + parseInt(color[3],10).toString(16)).slice(-2) : '';
+        },
+        hex: (hex) => {
+            let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        },
+        convert: (color, type) => {
+            return type === 'rgb' ? pixlr.colors.rgb(color) : pixlr.colors.hex(color);
         }
     },
     util: {
@@ -205,8 +232,12 @@ let pixlr = {
             return false;
         };
         pixlr.colors.picker.onchange = () => {
+            const picker = pixlr.colors.hex(pixlr.colors.picker.value, 'hex');
+            pixlr.colors.slider.red.value = picker.r;
+            pixlr.colors.slider.green.value = picker.g;
+            pixlr.colors.slider.blue.value = picker.b;
             pixlr.message.log(pixlr.message.collection.picker[pixlr.util.rand(0, 3)]);
-        }
+        };
 
     }
 };

@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pixel Art Maker!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="styles.css">
+    <title>Pixlr - Pixel Art Maker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="css/pixlr.css">
 </head>
 <body>
 
-<div class="container-fluid header--container">
+<div class="fluid pixlr-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1 class="header--title">Lab: Pixel Art Maker</h1>
-            </div>
+            <img class="logo" src="images/pixlr-w.svg">
         </div>
     </div>
 </div>
 
-<div class="container-fluid pixel-canvas--controls">
+<div class="fluid pixlr-main">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2 class="pixel-canvas--title">Pixel Canvas Settings</h2>
-            </div>
-        </div>
+            <div class="pixlr-controls">
+                <p class="title">Pixlr Settings</p>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div id="size_picker">
+                <div class="row color-picker-container">
+                    <input type="color" id="color_picker">
+                </div>
+
+                <div class="row">
                     <label>
-                    <input type="number" id="input_height" name="height" min="1" max="20" value="1">
+                        Red <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_red" onchange="pixlr.colors.slider.update()">
+                    </label>
+                    <label>
+                        Green <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_green" onchange="pixlr.colors.slider.update()">
+                    </label>
+                    <label>
+                        Blue <input type="range" min="0" max="255" value="0" class="slider" id="pixlr_blue" onchange="pixlr.colors.slider.update()">
+                    </label>
+
+                    <label>
                         Grid Height:
+                        <input type="number" id="input_height" name="height" min="1" max="20" value="1">
                     </label>
 
                     <label>
-                    <input type="number" id="input_width" name="width" min="1" max="20" value="1">
                         Grid Width:
+                        <input type="number" id="input_width" name="width" min="1" max="20" value="1">
                     </label>
 
-                    <label>Background Color: <br>
+                    <label for="canvas_bg">Background Color: <br>
                         <input type="color" id="canvas_bg" value="#f1f1f1" onchange="pixlr.grid.background.change()">
                     </label>
 
@@ -50,11 +57,16 @@
 
                     <button type="submit" class="btn  btn-success pixel-canvas--create-grid" onclick="pixlr.makeGrid()">Create New Grid</button>
 
+
                 </div>
             </div>
+
+            <div class="pixlr-grid">
+                <table id="pixel_canvas"></table>
+            </div>
+
         </div>
     </div>
-
 </div>
 
 
@@ -62,9 +74,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <label for="color_picker">Brush Color: <br>
-                    <input type="color" id="color_picker">
-                </label>
+                <!--<label for="color_picker">Brush Color: <br>-->
+                    <!--<input type="color" id="color_picker">-->
+                <!--</label>-->
             </div>
             <div class="col-md-10">
                 <div class="row">
@@ -90,7 +102,7 @@
 
             <div class="col-md-6">
                 <p class="pixel-canvas--label">Pixel Canvas</p>
-                <table id="pixel_canvas"></table>
+                <!--<table id="pixel_canvas"></table>-->
             </div>
 
             <div class="col-md-6">
@@ -116,6 +128,8 @@
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script src="js/pixlr.js"></script>
+
+
 
 </body>
 </html>
