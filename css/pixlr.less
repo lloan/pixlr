@@ -61,6 +61,15 @@ button {
     cursor: pointer;
   }
 }
+input,
+button {
+  &:focus {
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
+    outline-width: 0;
+  }
+}
 a {
   text-decoration: none;
   transition: .2s ease;
@@ -230,20 +239,21 @@ body {
     }
     tr, td {
       border: 1px solid #666;
+      transition: 0.1s ease-in;
     }
   }
 }
 
 #pixlr_console {
-  min-height: 40px;
+  min-height: 45px;
   font-family: @os;
   background-color: @primary;
   color: @contrast;
   font-size: 14px;
-  line-height: 32px;
+  line-height: 20px;
   display: block;
   position: relative;
-  padding-left: 10px;
+  padding: 10px;
   width: 95%;
 }
 
@@ -308,5 +318,5 @@ footer {
 
 // BRUSHES
 .brush-mode {
-  cursor: url(/images/cursors/brush.png), auto;
+  cursor: url(../images/cursors/brush.png), auto;
 }
