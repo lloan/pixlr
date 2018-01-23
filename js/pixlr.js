@@ -48,6 +48,7 @@ let pixlr = {
             html2canvas(pixlr.grid.element, {
                 backgroundColor: null
             }).then((canvas) => {
+                // todo: add event listener here to open a bigger version of it
                 pixlr.pixels.element.appendChild(canvas);
                 pixlr.grid.borders.toggle(true);
                 pixlr.message.log('New pixel has been saved. Check preview!', 1);
