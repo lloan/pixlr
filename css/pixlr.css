@@ -267,3 +267,6 @@ footer p a:hover {
 .error-message {
   border-left: 10px solid #C15A41;
 }
+.brush-mode {
+  cursor: url(/images/cursors/brush.png), auto;
+}
