@@ -1,5 +1,6 @@
 # Pixlr
 A JavaScript web app that helps you create pixel art and save it as a .png. 
+Play with it here: https://lloan.github.io/pixlr/
 
 **Features**
 - Save your pixels
