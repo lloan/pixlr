@@ -164,7 +164,7 @@ let pixlr = {
         const grid_width = pixlr.grid.get_width();
 
         pixlr.grid.clear();
-
+ 
         if (grid_height <= 20 && grid_width <= 20) {
             for (let x = 0; x < grid_height; x++) {
                 const row = pixlr.grid.element.insertRow(x);
@@ -243,4 +243,5 @@ let pixlr = {
     }
 };
 
+pixlr.makeGrid()
 pixlr.init();
