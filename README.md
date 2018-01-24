@@ -12,7 +12,7 @@ Play with it here: https://lloan.github.io/pixlr/
 - Eraser mode activated with right mouse click
 
 
-**Features in development**
+**Possible features**
 - Image preview lightbox
 - Multi-user pixels - allow multiple users to work on a pixel
 - Default grid sizes - small, medium and large
